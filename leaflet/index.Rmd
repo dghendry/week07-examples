@@ -1,0 +1,65 @@
+---
+title: "Very Simple Examples Using Leaflet"
+author: "David Hendry"
+date: "11/1/2019"
+output: html_document
+---
+
+```{r, echo=TRUE, eval=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+#----------------------------------------------
+# Source the functions used in this example
+#----------------------------------------------
+source("leaflet_functions.R")
+
+#----------------------------------------------
+# Documentation and tutorials 
+#    See https://rstudio.github.io/leaflet/
+```
+
+#### Example 1: Show Aukland, NZ
+```{r aukland, echo=TRUE, eval=TRUE}
+m <- leaflet() %>%
+  addTiles() %>% 
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+m
+```
+
+#### Example 2: Show a place closer to home!!
+```{r uw, echo=TRUE, eval=TRUE}
+m <- get_basic_map_of_UW()
+m
+```
+
+#### Example 3: Multiple cities and markers
+```{r echo=TRUE, eval=TRUE}
+cities <- get_city_data()
+head(cities)
+m <- get_map_with_city_markers(cities)
+m
+```
+
+#### Example 4: Multiple cities and populations (numeric measurement type) mapped to circles, which vary in size with population
+```{r echo=TRUE, eval=TRUE}
+cities <- get_city_data()
+m <- get_map_with_city_pop_circles(cities)
+m
+```
+
+#### Example 5: Change the tiles to a different style
+```{r echo=TRUE, eval=TRUE}
+cities <- get_city_data()
+m <- get_map_with_city_pop_circles(cities) %>%
+addProviderTiles(providers$Stamen.Toner)
+m
+```
+
+#### Example 6: Show a rectangle 
+```{r echo=TRUE, eval=TRUE}
+m <- get_map_with_rectangles()
+m
+```
+
+#### The R code in `leaflet_functions.R` 
+``````{r, eval=FALSE, code=readLines("./leaflet_functions.R")}
+```
