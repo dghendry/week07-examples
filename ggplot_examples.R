@@ -1,4 +1,6 @@
 library(ggplot2)
+
+
 ggplot(data = midwest) +
   geom_point(mapping = aes(x = percollege, y = percadultpoverty))
 
@@ -26,11 +28,12 @@ ggplot(data = mpg, aes(x = factor(1), fill = factor(cyl))) +
 ggplot(data = mpg, aes(x = factor(1), fill = factor(cyl))) +
   geom_bar(width = 1) 
 
-View(mpg)
 
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) +
   facet_wrap(~class)
 
 View(midwest)
+View(mpg)
+
 

@@ -37,7 +37,7 @@ init_people_df <- function() {
 # a new column to the data frame
 #----------------------------------------------
 people_df <- init_people_df()
-t_vector <- lapply(df$names, make_name, df)
+t_vector <- lapply(people_df$names, make_name_string, people_df)
 people_df$titles <- t_vector
 print(people_df)
 
